@@ -1,128 +1,34 @@
 "use strict";
 
-var array = [8, 6, 7, 5]
-var oddarray = [1, 2, 3, 4, 5]
-var valueToInsert = 3
+// To Do 2
 
-// Push Front
-// Given an array and an additional value, insert this value at the beginning of the array. 
-// Do this without using any built-in array methods.
-function pushFront(arr, valueToInsert) {
-    var newArray = [];
-    newArray[0] = valueToInsert;
-    
-    for (var i = 0; i < arr.length; i++) {
-        newArray[i+1] = arr[i];
-    }
-
-    return newArray;
-}
-
-// Pop Front
-// Given an array, remove and return the value at the beginning of the array. 
-// Do this without using any built-in array methods except pop().
-function popFront(arr) {
-    if (typeof arr !== 'undefiend' && arr.length > 0) {
-        var firstValue = arr[0];
-        
-        var newArray = [];
-        for (var i = 1; i < arr.length; i++) {
-            newArray[i-1] = arr[i];
-        }
-        console.log(arr);
-        arr = newArray;
-        console.log(arr);
-        return firstValue;
-    }
-
-    return null;
-}
-
-// Insert At
-// Given an array, index, and additional value, insert the value into array at given index. 
-// Do this without using built-in array methods. You can think of pushFront(arr,val) as equivalent to insertAt(arr,0,val).
-function insertAt(arr, index, value) {
-    if (typeof arr !== 'undefined' && index < arr.length && index >= 0) {
-        var newArr = [];
-
-        // left side of index
-        for (var i = 0; i < index; i++) {
-            newArr[i] = arr[i];
-        }
-
-        // new value at index
-        newArr[index] = value;
-
-        // rest of array
-        for (var i = index; i < arr.length; i++) {
-            newArr[i+1] = arr[i];
-        }
-
-        console.log(arr);
-        arr = newArr;
-    }
-
-    return arr;
-}
+// Reverse
+// Given a numerical array, reverse the order of values, in-place. The reversed array should 
+// have the same length, with existing elements moved to other indices so that order of elements is reversed. 
+// Working ‘in-place’ means that you cannot use a second array – move values within the array that you are given. 
+// As always, do not use built-in array functions such as splice().
 
 
-// Remove At
-// Given an array and an index into array, remove and return the array value at that index. 
-// Do this without using built-in array methods except pop(). Think of popFront(arr) as equivalent to removeAt(arr,0).
-function removeAt(arr, index) {
-    if (typeof arr !== 'undefined' && index < arr.length && index > 0) {
-        var newArr = [];
-        var removedValue = arr[index];
 
-        for (var i = 0; i < index; i++) {
-            newArr[i] = arr[i];
-        }
-        for (var i = index+1; i < arr.length; i++) {
-            newArr[i-1] = arr[i];
-        }
+// Rotate
+// Implement rotateArr(arr, shiftBy) that accepts array and offset. Shift arr’s values to the 
+// right by that amount. ‘Wrap-around’ any values that shift off array’s end to the other side, so that 
+// no data is lost. Operate in-place: given ([1,2,3],1), change the array to [3,1,2]. Don’t use built-in functions.
 
-        console.log(arr);
-        arr = newArr;
-        console.log(arr);
-        return removedValue;
-    }
-    return null;
-}
+// Second: allow negative shiftBy (shift L, not R).
+
+// Third: minimize memory usage. With no new array, handle arrays/shiftBys in the millions.
+
+// Fourth: minimize the touches of each element.
+
+// Filter Range
+// Alan is good at breaking secret codes. One method is to eliminate values that lie within a specific known range. 
+// Given arr and values min and max, retain only the array values between min and max. 
+// Work in-place: return the array you are given, with values in original order. No built-in array functions.
 
 
-// Swap Pairs
-// Swap positions of successive pairs of values of given array. If length is odd, do not change the final element. 
-// For [1,2,3,4], return [2,1,4,3]. For example, change input ["Brendan",true,42] to [true,"Brendan",42]. 
-// Do this without using any built-in array methods.
-function swapArrayPairs(arr) {
-    if (typeof arr !== 'undefined') {
-        for (var i = 0; i < arr.length; i += 2) {
-            
-            if (typeof arr[i+1] !== 'undefined') {
-                var temp = arr[i+1];
-                arr[i+1] = arr[i];
-                arr[i] = temp;
-            }
-        }
-        return arr;
-    } 
-    return null;
-}
 
-
-// Remove Duplicates
-// Given a sorted *integer* array, remove duplicate values. Because array elements are already in order, all duplicate 
-// values will be grouped together. As with all these array challenges, do this without using 
-// any built-in array methods. Second: Solve this without using any nested loops.
-function removeDuplicates(sortedArr) {
-    if (typeof sortedArr !== 'undefined' && sortedArr.length > 0) {
-        var cleanedArr = [];
-        for (var i = 0; i < sortedArr.length; i++) {
-            if (sortedArr[i+1] != sortedArr[i]) {
-                cleanedArr[cleanedArr.length] = sortedArr[i];
-            }
-        }
-        return cleanedArr;
-    }
-    return null;
-}
+// Concat
+// Replicate JavaScript’s concat(). Create a standalone function that accepts two arrays. 
+// Return a new array containing the first array’s elements, followed by the second array’s elements. 
+// Do not alter the original arrays. Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
