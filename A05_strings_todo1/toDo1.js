@@ -60,6 +60,16 @@ function countNonSpace(str) {
     return numChars;
 }
 
-
 // Remove Shorter Strings
 // Given a string array and value (length), remove any strings shorter than the length from the array.
+var strArray = pie.split(" ");
+function removeShortStr(arr, length) {
+    var newArray = [];
+    for (var item of arr) {
+        if (item.length >= length) {
+            newArray.push(item);
+        }
+    }
+
+    return newArray;   
+}
