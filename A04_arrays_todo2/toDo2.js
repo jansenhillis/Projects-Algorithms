@@ -56,7 +56,8 @@ function rotateLR(arr, shiftBy) {
                 }
                 arr[0] = temp;
                 shiftBy--;
-            } else if (shiftBy < 0) { // Shift left
+            } else if (shiftBy < 0) { 
+                // Shift left
                 temp = arr[0];
                 for (var i = 0; i < arr.length-1; i++) {
                     arr[i] = arr[i+1];
@@ -80,8 +81,22 @@ function rotateLR(arr, shiftBy) {
 // Given arr and values min and max, retain only the array values between min and max. 
 // Work in-place: return the array you are given, with values in original order. No built-in array functions.
 function filterRange(arr, min, max) {
-
+    if (typeof arr !== 'undefined' && min > 0 && max > 0) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] < min || arr[i] > max) {
+                for (var j = i; j < arr.length-1; j++) {
+                    arr[j] = arr[j+1];
+                }
+                arr.length -= 1;
+                i--;
+            }
+        }
+        
+        return arr;
+    }
+    return null;
 }
+
 
 
 // Concat
