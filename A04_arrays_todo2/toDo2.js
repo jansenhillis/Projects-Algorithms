@@ -97,9 +97,24 @@ function filterRange(arr, min, max) {
     return null;
 }
 
-
-
 // Concat
 // Replicate JavaScript’s concat(). Create a standalone function that accepts two arrays. 
 // Return a new array containing the first array’s elements, followed by the second array’s elements. 
 // Do not alter the original arrays. Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
+function newConcat(arr1, arr2) {
+    if (typeof arr1 !== 'undefined' && typeof arr2 !== 'undefined') {
+        var newArray = [];
+
+        for (var item of arr1) {
+            newArray.push(item);
+        }
+
+        for (var item of arr2) {
+            newArray.push(item);
+        }
+        
+        return newArray;
+    } 
+
+    return null;
+}
