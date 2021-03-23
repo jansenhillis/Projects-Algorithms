@@ -7,7 +7,7 @@ def authenticate_user(func):
     def func_wrapper(request, *args, **kwargs):
         try:
             user = None if 'user_id' not in request.session else User.objects.get(id=request.session['user_id'])
-            print("Authentiated User: ", user.first, user.last)
+            print("Authenticated User: ", user.first, user.last)
         except Exception as ex:
             print("User not found exception", str(ex))
 

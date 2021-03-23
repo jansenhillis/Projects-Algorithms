@@ -37,7 +37,7 @@
         <div id="data_entry" class="tabcontent">
             <h3>New Log Entry</h3>
             <p>Add a new attack, medication, or notes. </p> 
-            <form action="{% url 'index' %}" method="POST">{% csrf_token %}
+            <form action="{% url 'add_attack' %}" method="POST">{% csrf_token %}
                 {{ attack_form.as_p }}
                 <input type="submit" value="Log Attack">
             </form>
