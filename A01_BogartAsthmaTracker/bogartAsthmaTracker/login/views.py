@@ -42,6 +42,6 @@ def logout(request):
 def success_view(request):
     # check to see if the userid has been placed into the session
     if 'user_id' in request.session:
-        return redirect('/quotes')
+        return redirect('/asthmawatch')
     else:
         return redirect('/')
