@@ -2,18 +2,20 @@ from django import forms
 from .models import Attack
 
 class AttackForm(forms.ModelForm):
-    DURATIONS = [
+    DURATION = [
         ('short', 'Short'),
         ('med', 'Medium'),
         ('long', 'Long')
     ]
+    duration = forms.ChoiceField(choices=DURATION)
 
-    SEVERITIES = [
+    SEVERITY = [
         ('gentle', 'Gentle'),
         ('light', 'Light'),
         ('med', 'Medium'),
         ('hard', 'Hard'),
     ]
+    severity = forms.ChoiceField(choices=SEVERITY)
 
     class Meta:
         model = Attack
