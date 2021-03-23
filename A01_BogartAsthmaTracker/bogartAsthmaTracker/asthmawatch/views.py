@@ -4,7 +4,7 @@ from .forms import AttackForm
 
 # Create your views here.
 def index(request):
-    attack_form = AttackForm(request.POST)
+    attack_form = AttackForm()
     context = {
         'attack_form': attack_form
     }
