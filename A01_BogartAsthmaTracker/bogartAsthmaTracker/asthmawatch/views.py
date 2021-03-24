@@ -9,9 +9,21 @@ from bogartAsthmaTracker.decorators import authenticate_user
 @authenticate_user
 def index(request):
     attack_form = AttackForm()
+
+    labels = []
+    data = []
+    
+    # queryset = Attack.objects.all()
+    # for attack in queryset:
+    #     labels.append(attack.date_time)
+    #     # data.append(attack.)
+
+
     context = {
         'attack_form': attack_form,
-        'attacks': Attack.objects.all().values()
+        'attacks': Attack.objects.all(),
+        'labels': labels,
+        'data': data,
     }
     return render(request, 'aww.html', context)
 

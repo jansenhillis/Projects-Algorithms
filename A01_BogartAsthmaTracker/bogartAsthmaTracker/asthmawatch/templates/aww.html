@@ -14,7 +14,6 @@
 </head>
 <body>
 
-
     <div class="wrapper">
         <h4>Asthma Watch</h4>
 
@@ -28,20 +27,26 @@
             <p>Viewing history of medication and symptoms of feline asthma.</p>
             
             <div>
-                <canvas id="myChart"></canvas>
+                <canvas id="aggregate-chart"></canvas>
             </div>
-            
-
+            <div>
+                <ol>
+                {% for attack in attacks %}
+                    <li>Attack {{ attack.id }}: {{ attack.date_time }} ({{ attack.duration }}, {{ attack.severity }})</li>
+                {% endfor %}
+                </ol>
+            </div>
         </div>
 
         <div id="data_entry" class="tabcontent">
-            <h3>New Log Entry</h3>
-            <p>Add a new attack, medication, or notes. </p> 
-            <form action="{% url 'add_attack' %}" method="POST">{% csrf_token %}
-                {{ attack_form.as_p }}
-                <input type="submit" value="Log Attack">
-            </form>
-            
+
+
+                <h3>Log Attack</h3>
+                <p>Log a new attack. </p> 
+                <form action="{% url 'add_attack' %}" method="POST">{% csrf_token %}
+                    {{ attack_form.as_p }}
+                    <input type="submit" value="Log Attack">
+                </form>            
         </div>
     </div>
 

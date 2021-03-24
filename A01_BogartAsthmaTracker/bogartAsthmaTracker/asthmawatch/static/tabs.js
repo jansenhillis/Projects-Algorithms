@@ -20,8 +20,8 @@ function showPage(evt, tab_id) {
 document.getElementById("defaultOpen").click();
 $(document).ready(function() {
     
-
-    var ctx = document.getElementById('myChart');
+    // Aggregate Attack Chart
+    var ctx = document.getElementById('aggregate-chart');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
