@@ -29,14 +29,3 @@ function rFact(value) {
     }
     return value * rFact(value - 1);
 }
-
-// //Recursive Factorial
-// function rFact(val){
-//     val = Math.trunc(val);
-//     if (val < 1){
-//         return 1;
-//     }
-//     num = val * rFact(val-1);
-//     return num;
-// }
-// console.log(rFact(6.5));
