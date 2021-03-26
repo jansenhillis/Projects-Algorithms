@@ -16,7 +16,7 @@ def index(request):
     # queryset = Attack.objects.all()
     # for attack in queryset:
     #     labels.append(attack.date_time)
-    #     # data.append(attack.)
+    #     # data.append(attack)
 
 
     context = {
