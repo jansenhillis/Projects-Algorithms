@@ -25,6 +25,24 @@ function rBinarySearch(array, value) {
 //      gcf(a,b) == a, if a == b;
 //      gcf(a,b) == gcf(a-b,b), if a>b;
 //      gcf(a,b) == gcf(a,b-a), if b>a.
+//      
+//      gcf(30, 20) == gcf(10,20) == gcf(10,10) == 10
+//      gcf(48, 8) == gcf(40, 8) == gcf(32, 8) == gcf(24, 8) == gcf(16, 8) == gcf(8, 8) == 8
+//      gcf(47, 29) == gcf(18, 29) == gcf(18, 11) == gcf(7, 11) == gcf(7, 4) == gcf(3, 4) 
+//                  == gcf(3, 1) == gcf(2, 1) == gcf(1, 1) == 1
+function gcf(n1, n2) {
+    var result = 0;
+    if (n1 === n2) {
+        result = n1;
+    } else if(n1 > n2) {
+        result = gcf(n1 - n2, n2);
+    } else if (n1 < n2) {
+        result = gcf(n1, n2 - n1);
+    }
+
+    return result;
+}
+
 // Second: rework facts #2 and #3 to reduce stack consumption and expand rGCF’s reach. You should 
 // be able to compute rGCF(123456,987654).
 
