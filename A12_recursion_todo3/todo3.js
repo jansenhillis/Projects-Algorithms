@@ -45,7 +45,19 @@ function gcf(n1, n2) {
 
 // Second: rework facts #2 and #3 to reduce stack consumption and expand rGCF’s reach. You should 
 // be able to compute rGCF(123456,987654).
+// Using a mod here to determine if each reduction has a remainder of 0 (evenly distributed) 
+// Given a manual mod is == n1 mod n2 == n1 - n2 == m == m - n2
+// gcf(20, 30) == gcf(30, 20) == gcf(20, 10) == gcf(10, 10) == gcf (10, 0) == 10
+// gcf(47, 29) == gcf(29, 18) == gcf(18, 11) == gcf(11, 7) == gcf(7, 4) == gcf(4, 3) == gcf(3, 1) == gcf(1, 2) 
+//             == gcf(2, 1) == gcf(1, 0) == 1
 
+function largeGCF(n1, n2) {
+    if (n2 === 0) {
+        return n1;
+    }
+
+    return largeGCF(n2, n1 % n2);
+}
 
 
 // Bonus Challenges (Optional)
