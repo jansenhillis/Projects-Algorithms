@@ -21,10 +21,52 @@ class BST {
     // Creates an add(val) method on the BST object to add a new value to the tree. 
     // This involves creating a BTNode with this value and connecting it to the appropriate place in 
     // the tree. Unless otherwise specified, BSHs can contain duplicate values.
+    add(val) {
+        var node = new BTNode(val);
+
+        if (this.root) {
+            var runner = this.root;
+            
+            while (runner) {
+                if (node.val < runner.val) {
+                    console.log(val + " < " + this.root.val)
+
+                    if (runner.left) {
+                        runner = runner.left;
+                    } else {
+                        runner.left = node;
+                        runner = null;
+                    }
+                } else if (node.val > runner.val) {
+                    console.log(val + " > " + this.root.val)
+
+                    if (runner.right) {
+                        runner = runner.right;
+                    } else {
+                        runner.right = node;
+                        runner = null;
+                    }
+
+                } else {
+                    this.root.count++;
+                    runner = null;
+                }
+            }
+        } else {
+            // No root defined. Create one
+            this.root = node;
+        }
+    
+        return self; // chaining
+    }
+
 
     // BST: contains
     // Creates a contains(val) method in BST that returns whether the tree contains a particular value. 
     // Take advantage of the BST structure to make this a much faster operation than SList.contains() would be.
+    contains(val) {
+        
+    }
 
     // BST: min
     // Creates a min() method in the BST class that returns the smallest value found in BST.
