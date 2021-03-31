@@ -57,7 +57,7 @@ class BST {
             this.root = node;
         }
     
-        return self; // chaining
+        return this; 
     }
 
 
@@ -96,14 +96,80 @@ class BST {
 
     // BST: min
     // Creates a min() method in the BST class that returns the smallest value found in BST.
+    min() {
+        if (this.root) {
+            var runner = this.root;
+            var minValue = this.root.val;
+            while (runner) {
+                if (runner.left) {
+                    minValue = runner.left.val;
+                    runner = runner.left;
+                } else {
+                    runner = null;
+                }
+
+            }
+            return minValue;
+        }
+
+        return null;
+    }
 
     // BST: max
     // Creates a BST max() method that returns the largest value contained in the binary search tree.
+    max() {
+        if (this.root) {
+            var runner = this.root;
+            var maxValue = this.root.val;
+            while (runner) {
+                if (runner.right) {
+                    maxValue = runner.right.val;
+                    runner = runner.right;
+                } else {
+                    runner = null;
+                }
+
+            }
+            return maxValue;
+        }
+
+        return null;
+    }
 
     // BST: size
     // Writes a size() method that returns the number of nodes (values) contained in the tree.
+    size() {
+        var stack = [];
+        var nodeCount = 0;
+
+        if (this.root) {
+            stack.push(this.root);
+        
+            while (stack.length > 0) {
+                var node = stack.pop();
+                nodeCount++;
+                
+                if (node.left) {
+                    stack.push(node.left);
+                }
+
+                if (node.right) {
+                    stack.push(node.right);
+                }
+            }
+        }
+
+        return nodeCount;
+    }
 
     // BST: it's empty
     // Creates an isEmpty() method to return if the BST is empty (if it does not contain values).
+    isEmpty() {
+        var empty = true;
+        if (this.size()) {
+            empty = false;
+        }
+        return empty;
+    }
 }
 
