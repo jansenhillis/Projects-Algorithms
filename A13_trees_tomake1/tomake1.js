@@ -65,7 +65,33 @@ class BST {
     // Creates a contains(val) method in BST that returns whether the tree contains a particular value. 
     // Take advantage of the BST structure to make this a much faster operation than SList.contains() would be.
     contains(val) {
-        
+        var found = false;
+        if (this.root) {
+            var runner = this.root;
+            
+            while (runner) {
+                if (val < runner.val) {
+                    if (runner.left) {
+                        runner = runner.left;
+                    } else {
+                        runner = null;
+                    }
+                } else if (val > runner.val) {
+                    if (runner.right) {
+                        runner = runner.right;
+                    } else {
+                        runner = null;
+                    }
+                } else if (val === runner.val) {
+                    found = true;
+                    runner = null;
+                } else { // invalid input that cannot be auto converted by JS
+                    runner = null;
+                }
+            }
+        } 
+
+        return found;
     }
 
     // BST: min
